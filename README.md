@@ -1,33 +1,112 @@
-# ICS3203-CAT2 Assembly Practical Tasks
+# ICS3203-CAT2-Assembly-<Wesly Ryan Mugele 146414>
 
-This repository contains solutions for the ICS3203 CAT2 Assembly programming tasks. Each program demonstrates a key concept in Assembly programming.
+## Overview
+
+This repository contains assembly language programs developed as part of the ICS3203 Continuous Assessment Task 2. Each program demonstrates fundamental concepts in assembly programming, including control flow, array manipulation, modular programming, and hardware simulation.
+
+---
 
 ### Task 1: Control Flow and Conditional Logic
-This program prompts the user to input a number and classifies it as "POSITIVE," "NEGATIVE," or "ZERO" using conditional and unconditional jumps.
 
-### Challenges
-- Managing input as characters required converting ASCII to integers.
-- Using jumps (`JE`, `JL`, `JMP`) helped streamline branching logic.
+**Purpose**  
+This program prompts the user for a number and classifies it as **POSITIVE**, **NEGATIVE**, or **ZERO**. It demonstrates the use of conditional and unconditional jumps for decision-making.
+
+**Key Features**  
+- Implements branching logic using `cmp` and jump instructions (`je`, `jl`, `jmp`).
+- Uses system calls for input and output operations.
+
+**Compilation & Execution**
+```bash
+nasm -f elf32 task1.asm -o task1.o
+ld -m elf_i386 task1.o -o task1
+./task1
+```
+
+**Challenges**  
+- Handling ASCII to integer conversion.
+- Efficiently managing conditional jumps to avoid unnecessary branching.
+
+---
 
 ### Task 2: Array Manipulation with Looping and Reversal
-This program reverses an array of integers in place using loops and memory manipulation.
 
-### Challenges
-- Ensuring no additional memory was used for the reversal.
-- Pointer management (start vs. end of the array) was critical.
+**Purpose**  
+This program reverses an array of integers in place without using additional memory. It demonstrates loop structures and direct memory manipulation.
+
+**Key Features**  
+- Uses pointers to iterate through the array and swap values.
+- Demonstrates efficient in-place reversal without auxiliary storage.
+
+**Compilation & Execution**
+```bash
+nasm -f elf32 task2.asm -o task2.o
+ld -m elf_i386 task2.o -o task2
+./task2
+```
+
+**Challenges**  
+- Ensuring pointer arithmetic remains within array bounds.
+- Debugging issues related to memory overwriting during swapping.
+
+---
 
 ### Task 3: Modular Program with Subroutines
-This program computes the factorial of a number using a subroutine and demonstrates register preservation with the stack.
 
-### Challenges
-- Correctly managing the stack to prevent overwriting data.
-- Recursive logic was simulated using calls and returns.
+**Purpose**  
+This program computes the factorial of a given number using a subroutine. It highlights the importance of modular code design and stack usage for preserving register states.
+
+**Key Features**  
+- Utilizes the stack to save and restore registers during subroutine calls.
+- Implements recursive function-like behavior in assembly.
+
+**Compilation & Execution**
+```bash
+nasm -f elf32 task3.asm -o task3.o
+ld -m elf_i386 task3.o -o task3
+./task3
+```
+
+**Challenges**  
+- Managing recursion in assembly and ensuring the stack is correctly maintained.
+- Understanding how the stack operates during subroutine calls.
+
+---
 
 ### Task 4: Data Monitoring and Control Simulation
-This program simulates sensor-based actions (motor control and alarm triggering) based on input levels.
 
-### Challenges
-- Simulating ports using memory locations.
-- Ensuring actions were taken only for specific conditions.
+**Purpose**  
+This program simulates a control system where a sensor value determines the status of a motor and an alarm. It showcases basic hardware-level simulation using memory locations.
 
+**Key Features**  
+- Simulates sensor input using predefined memory locations.
+- Performs actions like turning on/off a motor and triggering an alarm based on thresholds.
 
+**Compilation & Execution**
+```bash
+nasm -f elf32 task4.asm -o task4.o
+ld -m elf_i386 task4.o -o task4
+./task4
+```
+
+**Challenges**  
+- Simulating hardware behavior in a software environment.
+- Accurately mapping memory locations to represent hardware components.
+
+---
+
+## General Notes
+
+- All programs are written in x86 assembly using NASM syntax.
+- System calls (`int 0x80`) are used for input, output, and program termination.
+- Inline comments are included for step-by-step understanding.
+
+---
+
+## Insights and Challenges
+
+- **Control Flow Logic:** Managing jumps effectively required a clear understanding of program flow to avoid redundant instructions.
+- **Array Manipulation:** Ensuring pointer safety during in-place reversal was crucial, especially when dealing with direct memory access.
+- **Subroutines:** Proper stack usage was critical to avoid corruption of register values during recursive calls.
+- **Hardware Simulation:** Simulating ports and memory manipulation provided insights into low-level hardware interactions.
+
+---
