@@ -16,7 +16,7 @@ This program reverses an array of integers in place using loops and memory manip
 - Ensuring no additional memory was used for the reversal.
 - Pointer management (start vs. end of the array) was critical.
 
-- ### Task 3: Modular Program with Subroutines
+### Task 3: Modular Program with Subroutines
 This program computes the factorial of a number using a subroutine and demonstrates register preservation with the stack.
 
 ### Challenges
